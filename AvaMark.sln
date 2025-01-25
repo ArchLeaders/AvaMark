@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvaMark", "AvaMark\AvaMark.csproj", "{658CF990-3137-42B2-A916-AB6393B4F4AC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{1ADB8C67-9E8F-4008-AB83-4E0E9830C8EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvaMark.Demo", "Samples\AvaMark.Demo\AvaMark.Demo.csproj", "{F1C9BA3E-EAED-4D6B-A982-1EAA80F105DC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{658CF990-3137-42B2-A916-AB6393B4F4AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{658CF990-3137-42B2-A916-AB6393B4F4AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{658CF990-3137-42B2-A916-AB6393B4F4AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{658CF990-3137-42B2-A916-AB6393B4F4AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1C9BA3E-EAED-4D6B-A982-1EAA80F105DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1C9BA3E-EAED-4D6B-A982-1EAA80F105DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1C9BA3E-EAED-4D6B-A982-1EAA80F105DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1C9BA3E-EAED-4D6B-A982-1EAA80F105DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F1C9BA3E-EAED-4D6B-A982-1EAA80F105DC} = {1ADB8C67-9E8F-4008-AB83-4E0E9830C8EE}
+	EndGlobalSection
+EndGlobal

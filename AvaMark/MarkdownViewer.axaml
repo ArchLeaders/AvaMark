@@ -1,0 +1,15 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:AvaMark">
+    <Design.PreviewWith>
+        <controls:MarkdownViewer />
+    </Design.PreviewWith>
+
+    <Style Selector="controls|MarkdownViewer">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter Content="{TemplateBinding Content}" />
+            </ControlTemplate>
+        </Setter>
+    </Style>
+</Styles>
