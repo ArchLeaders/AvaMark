@@ -5,6 +5,14 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="AvaMark.Demo.MainWindow"
         xmlns:am="using:AvaMark"
+        xmlns:av="using:TheArtOfDev.HtmlRenderer.Avalonia"
         Title="AvaMark.Demo">
-    <am:MarkdownViewer Markdown="**Test**" />
+    <Grid ShowGridLines="True" RowDefinitions="*" VerticalAlignment="Stretch">
+        <ScrollViewer Name="MdScrollView" IsVisible="True">
+            <am:MarkdownViewer Name="MdView" Margin="15" />
+        </ScrollViewer>
+        <ScrollViewer IsVisible="{Binding !#MdScrollView.IsVisible}" Margin="15">
+            <av:HtmlPanel Name="HtmlView" />
+        </ScrollViewer>
+    </Grid>
 </Window>
