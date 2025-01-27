@@ -1,13 +1,15 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:amc="clr-namespace:AvaMark.Controls"
-        xmlns:vm="clr-namespace:AvaMark.ViewModels">
+        xmlns:vm="clr-namespace:AvaMark.ViewModels"
+        xmlns:ave="https://github.com/avaloniaui/avaloniaedit">
     <Design.PreviewWith>
         <Border Padding="20">
             <!-- Add Controls for Previewer Here -->
         </Border>
     </Design.PreviewWith>
 
+    <StyleInclude Source="avares://AvaloniaEdit/Themes/Fluent/AvaloniaEdit.xaml" />
     <StyleInclude Source="/Controls/InlineCodeBlock.axaml" />
 
     <Style Selector="Run.h1">
@@ -111,5 +113,15 @@
                 </DataTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <Style Selector="ave|TextEditor.code">
+        <Setter Property="FontFamily" Value="Consolas" />
+        <Setter Property="Background" Value="{DynamicResource ThemeControlLowBrush}" />
+        <Setter Property="CornerRadius" Value="3" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ButtonBackground}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="Padding" Value="3,3,3,-3" />
     </Style>
 </Styles>

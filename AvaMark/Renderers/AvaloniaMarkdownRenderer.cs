@@ -36,6 +36,7 @@ internal sealed class AvaloniaMarkdownRenderer : RendererBase
             [Root]
         );
         
+        ObjectRenderers.Add(new CodeBlockRenderer());
         ObjectRenderers.Add(new HeadingRenderer());
         ObjectRenderers.Add(new ListRenderer());
         ObjectRenderers.Add(new ParagraphRenderer());
