@@ -16,4 +16,15 @@
       <PackageReference Include="TextMateSharp.Grammars" Version="1.0.65" />
     </ItemGroup>
 
+    <ItemGroup>
+        <None Include="..\Icon.png">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+        <None Include="..\Readme.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
+
 </Project>
