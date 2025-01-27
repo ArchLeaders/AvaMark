@@ -1,0 +1,32 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:AvaMark.Controls">
+    <Design.PreviewWith>
+        <controls:InlineCodeBlock />
+    </Design.PreviewWith>
+
+    <Style Selector="controls|InlineCodeBlock">
+        <Setter Property="Background" Value="{DynamicResource ButtonBackground}" />
+        <Setter Property="Padding" Value="3,2,3,0" />
+        <Setter Property="CornerRadius" Value="6" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid>
+                    <Border CornerRadius="{TemplateBinding CornerRadius}"
+                            Margin="0,0,0,1"
+                            Background="{TemplateBinding Background}">
+                        <TextBlock Text="{TemplateBinding Text}"
+                                   Margin="{TemplateBinding Padding}"
+                                   FontWeight="{TemplateBinding FontWeight}"
+                                   FontStyle="{TemplateBinding FontStyle}"
+                                   FontFamily="{TemplateBinding FontFamily}"
+                                   FontFeatures="{TemplateBinding FontFeatures}"
+                                   FontSize="{TemplateBinding FontSize}"
+                                   FontStretch="{TemplateBinding FontStretch}"
+                                   Foreground="{TemplateBinding Foreground}" />
+                    </Border>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+</Styles>
