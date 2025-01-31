@@ -13,6 +13,7 @@ public partial class MainWindow : Window
         
         MdView.Markdown = md;
         HtmlView.Text = Markdown.ToHtml(md);
+        MdView.Markdown = md;
     }
     
 }

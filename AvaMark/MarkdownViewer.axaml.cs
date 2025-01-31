@@ -18,8 +18,10 @@ public class MarkdownViewer : ContentControl
         if (source is not MarkdownViewer viewer) {
             return markdown;
         }
+
+        AvaloniaMarkdownRenderer renderer = new();
         
-        viewer.Content = Markdig.Markdown.Convert(markdown, AvaloniaMarkdownRenderer.Instance);
+        viewer.Content = Markdig.Markdown.Convert(markdown, renderer);
         
         return markdown;
     }

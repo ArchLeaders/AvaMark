@@ -11,8 +11,6 @@ namespace AvaMark.Renderers;
 
 internal sealed class AvaloniaMarkdownRenderer : RendererBase
 {
-    public static readonly AvaloniaMarkdownRenderer Instance = new();
-
     public StackPanel Root { get; } = new() {
         Spacing = 10
     };
