@@ -39,9 +39,6 @@
         <Setter Property="FontWeight" Value="Bold" />
     </Style>
 
-    <Style Selector="TextBlock.paragraph">
-    </Style>
-
     <Style Selector="Run.em">
         <Setter Property="FontStyle" Value="Italic" />
     </Style>
