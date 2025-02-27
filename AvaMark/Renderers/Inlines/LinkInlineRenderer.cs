@@ -5,10 +5,12 @@ using Markdig.Syntax.Inlines;
 
 namespace AvaMark.Renderers.Inlines;
 
-internal class LinkInlineRenderer : AvaloniaObjectRenderer<LinkInline>
+internal class LinkInlineRenderer(ImageResolverContext? imageResolverContext = null) : AvaloniaObjectRenderer<LinkInline>
 {
     private const string CLASS_LINK = "link";
     private const string CLASS_IMG = "image";
+    
+    private readonly ImageResolverContext? _imageResolverContext = imageResolverContext;
 
     protected override void Write(AvaloniaMarkdownRenderer renderer, LinkInline link)
     {
@@ -38,10 +40,10 @@ internal class LinkInlineRenderer : AvaloniaObjectRenderer<LinkInline>
         });
     }
 
-    private static void WriteImage(AvaloniaMarkdownRenderer renderer, LinkInline link)
+    private void WriteImage(AvaloniaMarkdownRenderer renderer, LinkInline link)
     {
         Image img = new() {
-            DataContext = new ImageLoadContext(link.Url),
+            DataContext = new ImageLoadContext(link.Url, _imageResolverContext),
             Classes = {
                 CLASS_IMG
             },

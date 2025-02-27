@@ -28,7 +28,7 @@ internal sealed class AvaloniaMarkdownRenderer : RendererBase
     /// </summary>
     public Stack<string> InlineStyles { get; } = [];
 
-    public AvaloniaMarkdownRenderer()
+    public AvaloniaMarkdownRenderer(ImageResolverContext? imageResolverContext = null)
     {
         Panels = new Stack<StackPanel>(
             [Root]
@@ -47,7 +47,7 @@ internal sealed class AvaloniaMarkdownRenderer : RendererBase
         ObjectRenderers.Add(new EmphasisInlineRenderer());
         ObjectRenderers.Add(new LiteralInlineRenderer());
         ObjectRenderers.Add(new LineBreakInlineRenderer());
-        ObjectRenderers.Add(new LinkInlineRenderer());
+        ObjectRenderers.Add(new LinkInlineRenderer(imageResolverContext));
     }
 
     public override object Render(MarkdownObject markdownObject)
