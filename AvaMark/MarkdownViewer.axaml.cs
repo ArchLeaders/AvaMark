@@ -6,7 +6,12 @@ namespace AvaMark;
 
 public class MarkdownViewer : ContentControl
 {
-    public static readonly StyledProperty<string> MarkdownProperty = AvaloniaProperty.Register<MarkdownViewer, string>(nameof(Markdown), string.Empty, coerce: CoerceMarkdown);
+    static MarkdownViewer()
+    {
+        MarkdownProperty.Changed.AddClassHandler<MarkdownViewer>(HandleMarkdownChanged);
+    }
+    
+    public static readonly StyledProperty<string> MarkdownProperty = AvaloniaProperty.Register<MarkdownViewer, string>(nameof(Markdown), string.Empty);
     public static readonly StyledProperty<IImageResolver?> ImageResolverProperty = AvaloniaProperty.Register<MarkdownViewer, IImageResolver?>(nameof(ImageResolver));
     public static readonly StyledProperty<object?> ImageResolverStateProperty = AvaloniaProperty.Register<MarkdownViewer, object?>(nameof(ImageResolverState));
 
@@ -17,10 +22,7 @@ public class MarkdownViewer : ContentControl
     
     public IImageResolver? ImageResolver {
         get => GetValue(ImageResolverProperty);
-        set {
-            SetValue(ImageResolverProperty, value);
-            CoerceMarkdown(this, Markdown);
-        }
+        set => SetValue(ImageResolverProperty, value);
     }
     
     public object? ImageResolverState {
@@ -28,20 +30,16 @@ public class MarkdownViewer : ContentControl
         set => SetValue(ImageResolverStateProperty, value);
     }
     
-    public static string CoerceMarkdown(AvaloniaObject source, string markdown)
+    public static void HandleMarkdownChanged(MarkdownViewer viewer, AvaloniaPropertyChangedEventArgs args)
     {
-        if (source is not MarkdownViewer viewer) {
-            return markdown;
+        if (args.NewValue is not string markdown) {
+            viewer.Content = null;
+            return;
         }
-        
-        IImageResolver? imageResolver = source.GetValue(ImageResolverProperty);
-        object? imageResolverState = source.GetValue(ImageResolverStateProperty);
 
-        ImageResolverContext imageResolverContext = new(imageResolver, imageResolverState);
+        ImageResolverContext imageResolverContext = new(viewer.ImageResolver, viewer.ImageResolverState);
         AvaloniaMarkdownRenderer renderer = new(imageResolverContext);
         
         viewer.Content = Markdig.Markdown.Convert(markdown, renderer);
-        
-        return markdown;
     }
 }
