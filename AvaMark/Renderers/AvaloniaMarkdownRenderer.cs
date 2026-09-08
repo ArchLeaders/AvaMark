@@ -113,7 +113,9 @@ internal sealed class AvaloniaMarkdownRenderer : RendererBase
     public void WriteInline(Control element)
     {
         element.Classes.AddRange(InlineStyles);
-        WriteInline(new InlineUIContainer(element));
+        WriteInline(new InlineUIContainer(element) {
+            BaselineAlignment = BaselineAlignment.Bottom
+        });
     }
 
     public void WriteInline(Inline inline)
