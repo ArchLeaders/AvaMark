@@ -59,10 +59,6 @@
         <Setter Property="FontWeight" Value="Bold" />
     </Style>
 
-    <Style Selector="HyperlinkButton.link">
-        <Setter Property="Padding" Value="-2" />
-    </Style>
-
     <Style Selector="Border.quote">
         <Setter Property="Padding" Value="10,0,0,0" />
         <Setter Property="BorderThickness" Value="2,0,0,0" />
@@ -80,11 +76,15 @@
         <Setter Property="ItemTemplate">
             <Setter.Value>
                 <DataTemplate DataType="{x:Type vm:ListItem}">
-                    <Grid ColumnDefinitions="18,*" Margin="0,6,0,4">
+                    <Grid ColumnDefinitions="Auto,*"
+                          Margin="0,4,0,0">
                         <TextBlock Text="{Binding Bullet}"
+                                   Margin="0,0,8,0"
+                                   VerticalAlignment="Top"
                                    IsVisible="{Binding Bullet}" />
                         <ContentPresenter Grid.Column="1"
-                                          Content="{Binding Content, Mode=OneWay}" />
+                                          Content="{Binding Content, Mode=OneWay}"
+                                          VerticalAlignment="Top" />
                     </Grid>
                 </DataTemplate>
             </Setter.Value>
@@ -95,17 +95,16 @@
         <Setter Property="ItemTemplate">
             <Setter.Value>
                 <DataTemplate DataType="{x:Type vm:ListItem}">
-                    <Grid ColumnDefinitions="18,*" Margin="0,8,0,0">
-                        <Ellipse Fill="{DynamicResource TextControlForeground}"
-                                 Margin="0,7"
-                                 Height="4"
-                                 Width="4"
-                                 VerticalAlignment="Top"
-                                 HorizontalAlignment="Center"
-                                 IsVisible="{Binding !Bullet}" />
+                    <Grid ColumnDefinitions="Auto,*"
+                          Margin="0,4,0,0">
+                        <TextBlock Text="•"
+                                   Margin="0,0,8,0"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   IsVisible="{Binding !Bullet}" />
                         <ContentPresenter Grid.Column="1"
-                                          Name="Presenter"
-                                          Content="{Binding Content, Mode=OneWay}" />
+                                          Content="{Binding Content, Mode=OneWay}"
+                                          VerticalAlignment="Center" />
                     </Grid>
                 </DataTemplate>
             </Setter.Value>

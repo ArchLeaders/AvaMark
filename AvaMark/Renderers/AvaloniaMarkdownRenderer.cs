@@ -2,6 +2,7 @@ using System.Runtime.CompilerServices;
 using Avalonia.Controls;
 using Avalonia.Controls.Documents;
 using Avalonia.Media;
+using AvaMark.Controls;
 using AvaMark.Renderers.Inlines;
 using Markdig.Renderers;
 using Markdig.Syntax;
@@ -68,7 +69,7 @@ internal sealed class AvaloniaMarkdownRenderer : RendererBase
 
     public void OpenBlock(params IEnumerable<string> classes)
     {
-        TextBlock block = new() {
+        InteractiveTextBlock block = new() {
             TextWrapping = TextWrapping.WrapWithOverflow
         };
         
@@ -113,7 +114,9 @@ internal sealed class AvaloniaMarkdownRenderer : RendererBase
     public void WriteInline(Control element)
     {
         element.Classes.AddRange(InlineStyles);
-        WriteInline(new InlineUIContainer(element));
+        WriteInline(new InlineUIContainer(element) {
+            BaselineAlignment = BaselineAlignment.Bottom
+        });
     }
 
     public void WriteInline(Inline inline)

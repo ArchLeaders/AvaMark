@@ -1,4 +1,3 @@
-using Avalonia.Controls.Documents;
 using AvaMark.Controls;
 using Markdig.Syntax.Inlines;
 
@@ -10,13 +9,11 @@ internal class CodeInlineRenderer : AvaloniaObjectRenderer<CodeInline>
     
     protected override void Write(AvaloniaMarkdownRenderer renderer, CodeInline obj)
     {
-        renderer.WriteInline(new InlineUIContainer {
-            Child = new InlineCodeBlock {
-                Classes = {
-                    CLASS
-                },
-                Text = obj.ContentSpan.ToString()
-            }
+        renderer.WriteInline(new InlineCodeBlock {
+            Classes = {
+                CLASS
+            },
+            Text = obj.ContentSpan.ToString()
         });
     }
 }
