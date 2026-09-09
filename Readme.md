@@ -6,6 +6,5 @@ A simple (experimental) markdown view for [AvaloniaUI](https://avaloniaui.net/) 
 
 Known issues:
 
-* Hyperlink elements do not have text wrapping.
 * Header links have no effect when clicking.
 * HTML inline elements are ignored.
