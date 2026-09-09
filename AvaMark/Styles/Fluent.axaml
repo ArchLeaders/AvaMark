@@ -1,5 +1,6 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:am="clr-namespace:AvaMark"
         xmlns:amc="clr-namespace:AvaMark.Controls"
         xmlns:vm="clr-namespace:AvaMark.ViewModels"
         xmlns:ave="https://github.com/avaloniaui/avaloniaedit">
@@ -59,6 +60,14 @@
         <Setter Property="FontWeight" Value="Bold" />
     </Style>
 
+    <Style Selector="am|MarkdownViewer HyperlinkButton">
+        <Setter Property="FontSize" Value="{Binding $parent[am:MarkdownViewer].FontSize}" />
+        <Setter Property="FontFamily" Value="{Binding $parent[am:MarkdownViewer].FontFamily}" />
+        <Setter Property="FontWeight" Value="{Binding $parent[am:MarkdownViewer].FontWeight}" />
+        <Setter Property="FontStyle" Value="{Binding $parent[am:MarkdownViewer].FontStyle}" />
+        <Setter Property="FontStretch" Value="{Binding $parent[am:MarkdownViewer].FontStretch}" />
+    </Style>
+
     <Style Selector="HyperlinkButton.link">
         <Setter Property="Padding" Value="-2" />
     </Style>
@@ -80,11 +89,15 @@
         <Setter Property="ItemTemplate">
             <Setter.Value>
                 <DataTemplate DataType="{x:Type vm:ListItem}">
-                    <Grid ColumnDefinitions="18,*" Margin="0,6,0,4">
+                    <Grid ColumnDefinitions="Auto,*"
+                          Margin="0,4,0,0">
                         <TextBlock Text="{Binding Bullet}"
+                                   Margin="0,0,8,0"
+                                   VerticalAlignment="Top"
                                    IsVisible="{Binding Bullet}" />
                         <ContentPresenter Grid.Column="1"
-                                          Content="{Binding Content, Mode=OneWay}" />
+                                          Content="{Binding Content, Mode=OneWay}"
+                                          VerticalAlignment="Top" />
                     </Grid>
                 </DataTemplate>
             </Setter.Value>
@@ -95,17 +108,16 @@
         <Setter Property="ItemTemplate">
             <Setter.Value>
                 <DataTemplate DataType="{x:Type vm:ListItem}">
-                    <Grid ColumnDefinitions="18,*" Margin="0,8,0,0">
-                        <Ellipse Fill="{DynamicResource TextControlForeground}"
-                                 Margin="0,7"
-                                 Height="4"
-                                 Width="4"
-                                 VerticalAlignment="Top"
-                                 HorizontalAlignment="Center"
-                                 IsVisible="{Binding !Bullet}" />
+                    <Grid ColumnDefinitions="Auto,*"
+                          Margin="0,4,0,0">
+                        <TextBlock Text="•"
+                                   Margin="0,0,8,0"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   IsVisible="{Binding !Bullet}" />
                         <ContentPresenter Grid.Column="1"
-                                          Name="Presenter"
-                                          Content="{Binding Content, Mode=OneWay}" />
+                                          Content="{Binding Content, Mode=OneWay}"
+                                          VerticalAlignment="Center" />
                     </Grid>
                 </DataTemplate>
             </Setter.Value>
